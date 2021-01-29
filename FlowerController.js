@@ -6,6 +6,8 @@ const createPoisonous = document.querySelector("#createPoisonous");
 const createPrice = document.querySelector("#createPrice");
 const createType = document.querySelector("#createType");
 
+
+
 const printFlowerToScreen = (username) => {
     let user = document.createElement("p"); // <p> </p>
     let text = document.createTextNode(`${username}`); // username
@@ -37,13 +39,14 @@ const retrieveData = () => {
     })
 }
 
-const createFlowers = async() => {
+const createFlowers = () => {
 
     const colourValue = createColour.value;
     const heightValue = createHeight.value;
     const poisonousValue = createPoisonous.value;
     const priceValue = createPrice.value;
     const typeValue = createType.value;
+    console.log(poisonousValue);
 
     let data = {
         colour: colourValue,
@@ -53,24 +56,19 @@ const createFlowers = async() => {
         type: typeValue
     }
 
-    fetch("http://localhost:8082/swagger-ui.html",{
+    console.log(data);
+
+    fetch("http://localhost:8082/flower/create",{
         method: "POST",
         body: JSON.stringify(data),
         headers:{
-            "Content-Type":"application/json"
+            "Content-Type":"application/json",
+            "Access-Control-Allow-Origin":"*"
         }
     })
     .then(response=>response.json())
     .then(info =>{
         console.log(info);
-        alert.setAttribute("class","alert alert-success");
-        alert.innerHTML = "ALERT"
-        setTimeout( () => {
-            alert.removeAttribute("class"); 
-            alert.innerHTML = ""; 
-         },2000);
     })
-    .catch(err => console.error('ERROR! ${err}'));
-
-
+    .catch(err => console.error('ERROR!' + err));
 }

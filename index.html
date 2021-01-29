@@ -17,7 +17,7 @@
                 <label>Height:</label>
                 <input type="number" id="createHeight"></input>
                 <label>Poisonous:</label>
-                <input type="checkbox" id="createPoisonous"></input>
+                <input type="text" id="createPoisonous" data-value="boolean"></input>
                 <label>Price:</label>
                 <input type="number" id="createPrice"></input>
                 <label>Type:</label>
@@ -33,7 +33,7 @@
             <h1>READ BY ID</h1>
             <label>Flower id:</label>
             <input type="number" id="readOneInput"></input>
-            <button type="button" id="readOneButton">READ</button>
+            <button type="button" id="readOneButton" >READ</button>
         </div>
         <div id="update">
             <h1>UPDATE</h1>
@@ -49,13 +49,13 @@
             <input type="number" id="updatePrice"></input>
             <label>Type:</label>
             <input type="text" id="updateType"></input>
-            <button type="button" id="updateButton">UPDATE</button>
+            <button type="button" id="updateButton" onclick="updateFlowers()">UPDATE</button>
         </div>
         <div id="delete">
-            <h1>READ BY ID</h1>
+            <h1>DELETE</h1>
             <label>Flower id:</label>
             <input type="number" id="deleteInput"></input>
-            <button type="button" id="deleteButton">DELETE</button>
+            <button type="button" id="deleteButton" onclick="deleteFlowers()">DELETE</button>
         </div>
     </div>
 
